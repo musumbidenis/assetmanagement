@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Session;
 use App\Asset;
 use App\Lab;
+use DB;
 use Illuminate\Http\Request;
 
 class SessionsController extends Controller
@@ -41,10 +42,12 @@ class SessionsController extends Controller
     {    
         $barcode = $request->barcode;
         $id = $request->id;
+        $stop = now();
         
-        Session::update('sessionStop', now())->where('userId', $id)
+        DB::table('sessions')
+        ->where('userId', $id)
         ->where('serialNumber', $barcode)
-        ->where('sessionStop', '');
-
+        ->where('sessionStop', '')
+        ->update(['sessionStop' => $stop]);
     }
 }
