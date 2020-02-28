@@ -38,9 +38,9 @@
                   <div class="card-icon">
                     <i class="material-icons">info</i>
                   </div>                   
-                  <p class="card-category">Assets</p>
+                  <p class="card-category">Assets Recorded</p>
                   <h3 class="card-title">
-                  <small>0 assets</small>
+                  <small>{{$assets}} assets</small>
                   </h3>
                 </div>
                 <div class="card-footer">

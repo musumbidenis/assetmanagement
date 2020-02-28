@@ -99,7 +99,7 @@
                   <td>Asset Name</td>
                   <td>Serial Number</td>
                   <td>Asset Description</td>
-                  <td class="disabled-sorting text-right">Action</td>
+                  <td>Image url</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -108,12 +108,72 @@
                 <td>{{$asset->assetName}}</td>
                 <td>{{$asset->serialNumber}}</td>
                 <td>{{$asset->description}}</td>
+                <td>{{$asset->qrCode_url}}</td>
+                </tr>
+                @endforeach
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Asset Name</td>
+                    <td>Serial Number</td>
+                    <td>Asset Description</td>
+                    <td>Image url</td>
+                </tr>
+                </tfoot>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
+         </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="card ">
+            <div class="card-header card-header-rose card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">info</i>
+              </div>
+              <h4 class="card-title">Generate QrCode</h4>
+            </div>
+            <!-- Display notification messages here -->
+            <div class="container" style="padding-top:10px;">
+              @if ($message = Session::get('success'))
+              <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>    
+                <strong>{{ $message }}</strong>
+              </div>
+              @endif
+            </div>
+
+            <!-- Display the courses available in the database -->
+          <div class="card-body">
+            <div class="toolbar">
+              <!--        Here you can write extra buttons/actions for the toolbar              -->
+            </div>
+            <div class="material-datatables">
+
+              <table id="datatables02" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                <thead>
+                  <tr>
+                  <td>Asset Name</td>
+                  <td>Serial Number</td>
+                  <td>Asset Description</td>
+                  <td class="disabled-sorting text-right">Action</td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($assets as $asset)
+                <tr>
+                <td>{{$asset->assetName}}</td>
+                <td>{{$asset->serialNumber}}</td>
+                <td>{{$asset->description}}</td>              
                 <td class="text-right">
-                    <form method="post" action="/delete/{{$asset->id}}" enctype="multipart/form-data" name="deleteForm">
+                    <form method="post" action="" enctype="multipart/form-data" name="deleteForm">
                         {{ csrf_field() }}
                         <input type="submit"  class="btn btn-danger btn-sm" value="DELETE">
                       </form>
-                    </td>
+                </td>
                 </tr>
                 @endforeach
                 </tbody>

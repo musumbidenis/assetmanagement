@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Asset;
+use QrCode;
+use Storage;
 
 class AssetsController extends Controller
 {
@@ -35,10 +37,22 @@ class AssetsController extends Controller
      */
     public function store(Request $request)
     {
+        $serial = $request->serial;
+        $image = QrCode::format('png')
+                 ->size(300)
+                 ->errorCorrection('H')
+                 ->generate($serial);
+
+        $fileName = $serial.'.png';
+        $output_file = 'qrcode_images/'.$fileName;
+        Storage::disk('local')->put($output_file, $image);
+
+
         $asset = new Asset();
         $asset->assetName = $request->name;
         $asset->serialNumber = $request->serial;
         $asset->description = $request->description;
+        $asset->qrCode_url = url('/').'/storage/qrcode_images/'.$fileName;
         $asset->labId = $request->lab;
 
         if($asset->save()){

@@ -16,7 +16,8 @@ class PagesController extends Controller
      */
     public function home()
     {
-        return view('pages.home');
+        $assets = Asset::count();
+        return view('pages.home')->with('assets', $assets);
     }
 
     /**
@@ -26,7 +27,7 @@ class PagesController extends Controller
      */
     public function asset()
     {
-        $assets = Asset::select('assetName', 'serialNumber', 'description')->get();
+        $assets = Asset::get();
         $labs = Lab::get();
 
         return view('pages.asset')->with('assets', $assets)->with('labs', $labs);
