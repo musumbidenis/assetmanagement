@@ -43,11 +43,11 @@ class SessionsController extends Controller
         $barcode = $request->barcode;
         $id = $request->id;
         $stop = now();
-        
+
         DB::table('sessions')
         ->where('userId', $id)
         ->where('serialNumber', $barcode)
-        ->where('sessionStop', '')
+        ->where('sessionStop', 'NULL')
         ->update(['sessionStop' => $stop]);
     }
 }
