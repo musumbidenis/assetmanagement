@@ -23,7 +23,7 @@ class SessionsController extends Controller
     {
         $session = new Session();
         $session->userId = $request->id;
-        $session->assetId = $request->barcode;
+        $session->serialNumber = $request->barcode;
         $session->labId = $request->lab;
         $session->sessionStart = now();
 
