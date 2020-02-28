@@ -63,8 +63,7 @@
                 @foreach ($sessions as $session)
                 <tr>
                 <td>{{$session->userId}}</td>
-                <td>{{$session->assetid}}</td>
-                <td>{{$session->sessionStart}}</td>
+                <td>{{$session->serialNumber}}</td>
                 <td>{{$session->sessionStart}}</td>
                 <td>{{$session->sessionStop}}</td>
                 </tr>

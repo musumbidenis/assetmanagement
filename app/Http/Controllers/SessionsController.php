@@ -38,6 +38,13 @@ class SessionsController extends Controller
     /*POST
      */
     public function stop(Request $request)
-    {      
+    {    
+        $barcode = $request->barcode;
+        $id = $request->id;
+        
+        Session::update('sessionStop', now())->where('userId', $id)
+        ->where('serialNumber', $barcode)
+        ->where('sessionStop', '');
+
     }
 }

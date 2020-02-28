@@ -17,5 +17,6 @@ Route::post('/register', 'UsersController@register');
 Route::post('/login', 'UsersController@login');
 
 Route::post('/start', 'SessionsController@start');
+Route::post('/stop', 'SessionsController@stop');
 
 Route::get('/getLabs', 'SessionsController@labs');
