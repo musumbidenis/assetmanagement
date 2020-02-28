@@ -4,10 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Session;
 use App\Asset;
+use App\Lab;
 use Illuminate\Http\Request;
 
 class SessionsController extends Controller
 {
+    /*GET
+     */
+    public function labs()
+    {
+        $labs = Lab::get();
+
+        return $labs;
+    }
     /*POST
      */
     public function start(Request $request)
@@ -21,9 +30,12 @@ class SessionsController extends Controller
         $session->labId = $request->lab;
         $session->sessionStart = now();
 
-        $session->save();
+        if($session->save()){
+            return response()->json('success');
+        }else{
+            return response()->json('error');
+        }
 
-        
     }
 
     /*POST

@@ -15,3 +15,7 @@ use Illuminate\Http\Request;
 
 Route::post('/register', 'UsersController@register');
 Route::post('/login', 'UsersController@login');
+
+Route::post('/start', 'SessionsController@start');
+
+Route::get('/getLabs', 'SessionsController@labs');
