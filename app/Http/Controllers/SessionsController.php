@@ -47,7 +47,7 @@ class SessionsController extends Controller
         DB::table('sessions')
         ->where('userId', $id)
         ->where('serialNumber', $barcode)
-        ->where('sessionStop', 'NULL')
+        ->where('sessionStop', '2000-01-01 00:00:00')
         ->update(['sessionStop' => $stop]);
     }
 }
