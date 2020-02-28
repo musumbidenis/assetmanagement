@@ -44,16 +44,17 @@ class SessionsController extends Controller
         $id = $request->id;
         $stop = now();
 
-        if(DB::table('sessions')
-        ->where('userId', $id)
-        ->where('serialNumber', $barcode)
-        ->where('sessionStop', '2000-01-01 00:00:00')
-        ->update(['sessionStop' => $stop])){
-            return response()->json('success');
+        $update = DB::table('sessions')
+                    ->where('userId', $id)
+                    ->where('serialNumber', $barcode)
+                    ->where('sessionStop', '2000-01-01 00:00:00')
+                    ->update(['sessionStop' => $stop]);
+        
+        if($update){
+            return response()->json('success')->with($update);
         }else{
-            return response()->json('error');
+            return response()->json('error')->with($update);
         }
         
-
     }
 }
