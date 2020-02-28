@@ -51,9 +51,9 @@ class SessionsController extends Controller
                     ->update(['sessionStop' => $stop]);
         
         if($update){
-            return response()->json('success')->with($update);
+            return response()->json(['success', $update]);
         }else{
-            return response()->json('error')->with($update);
+            return response()->json(['error' ,$update]);
         }
         
     }
