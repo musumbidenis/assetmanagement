@@ -55,8 +55,11 @@ class AuthController extends Controller
         if($credentials == 0){
             return redirect('/')->with('error','Incorrect details!');
         }else{
+            $request->session()->put('Techniciankey', $id);
             return redirect('home');
         }
+        
+
     }
 
     /*GET

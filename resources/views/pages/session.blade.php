@@ -6,7 +6,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="/session">Sessions</a>
+            <a class="navbar-brand" href="/home">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -17,11 +17,11 @@
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
-                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
+                <a class="nav-link" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>{{$id}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="/logout">Log out</a>
+                  <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
               </li>
             </ul>
@@ -34,7 +34,7 @@
     <div class="container-fluid">
       <div class="row">
       <!-- sessions card -->
-        <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="col-lg-12 col-md-6 col-sm-6">
             <div class="card ">
                 <div class="card-header card-header-rose card-header-icon">
                   <div class="card-icon">
@@ -53,10 +53,10 @@
               <table id="datatables01" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                 <thead>
                   <tr>
-                  <td>User</td>
-                  <td>Asset</td>
-                  <td>SessionStart</td>
-                  <td>SessionStop</td>
+                  <th>User</th>
+                  <th>Asset</th>
+                  <th>SessionStart</th>
+                  <th>SessionStop</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -69,13 +69,6 @@
                 </tr>
                 @endforeach
                 </tbody>
-                <tfoot>
-                  <tr>
-                  <td>User</td>
-                  <td>Asset</td>
-                  <td>SessionStart</td>
-                  <td>SessionStop</td>
-                </tr>
                 </tfoot>
                 <tbody>
                 </tbody>

@@ -6,7 +6,7 @@
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="/asset">Asset</a>
+            <a class="navbar-brand" href="/home">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -17,11 +17,11 @@
           <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
-                <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">person</i>
+                <a class="nav-link" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="material-icons">person</i>{{$id}}
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                  <a class="dropdown-item" href="/logout">Log out</a>
+                  <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
               </li>
             </ul>
@@ -68,17 +68,6 @@
               <div class="form-group">
                 <label class="bmd-label-floating">Description</label>
                   <input type="text" name="description" class="form-control" required>
-              </div>
-              <div class="form-group">
-                <select class="form-control selectpicker" name="lab" data-style="btn btn-link" id="" required>
-                <option value="" disabled selected>Select Computer Lab</option>
-                <option value="1">Computer Lab 1</option>
-                <option value="2">Computer Lab 2</option>
-                <option value="3">Computer Lab 3</option>
-                <option value="4">Computer Lab 4</option>
-                <option value="5">Computer Lab 5</option>
-               
-                </select>
               </div>                                                          
               <div class="card-footer ">
                 <button type="submit" class="btn btn-fill btn-rose">Save</button>
@@ -134,7 +123,7 @@
               <div class="card-icon">
                 <i class="material-icons">info</i>
               </div>
-              <h4 class="card-title">Generate QrCode</h4>
+              <h4 class="card-title">Asset</h4>
             </div>
             <!-- Display notification messages here -->
             <div class="container" style="padding-top:10px;">

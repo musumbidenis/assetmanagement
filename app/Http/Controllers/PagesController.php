@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Asset;
 use App\Lab;
-use App\Session;
+use App\Session1;
+use App\Technician;
+use Session;
+use DB;
 
 class PagesController extends Controller
 {
@@ -14,10 +17,16 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function home()
+    public function home(Request $request)
     {
-        $assets = Asset::count();
-        return view('pages.home')->with('assets', $assets);
+        $id = $request->session()->get('Techniciankey');
+        $assets = DB::table('assets')
+                  ->join('technicians', 'technicians.labId', '=', 'assets.labId')
+                  ->where('technicians.employeeId', '=', $id)
+                  ->distinct()
+                  ->count();
+        
+        return view('pages.home')->with('assets', $assets)->with('id', $request->session()->get('Techniciankey'));
     }
 
     /**
@@ -25,20 +34,29 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function asset()
+    public function asset(Request $request)
     {
-        $assets = Asset::get();
-        $labs = Lab::get();
+        $id = $request->session()->get('Techniciankey');
+        $assets = DB::table('assets')
+                ->join('technicians', 'technicians.labId', '=', 'assets.labId')
+                ->where('technicians.employeeId', '=', $id)
+                ->distinct()
+                ->get();
 
-        return view('pages.asset')->with('assets', $assets)->with('labs', $labs);
+        return view('pages.asset')->with('assets', $assets)->with('id', $request->session()->get('Techniciankey'));
     }
 
     /**
      */
-    public function session()
+    public function session(Request $request)
     {
-        $sessions = Session::get();
-        return view('pages.session')->with('sessions', $sessions);
+        $id = $request->session()->get('Techniciankey');
+        $sessions = DB::table('sessions')
+                    ->join('technicians', 'technicians.labId', 'sessions.labId')
+                    ->where('technicians.employeeId', '=', $id)
+                    ->distinct()
+                    ->get();
+        return view('pages.session')->with('sessions', $sessions)->with('id', $request->session()->get('Techniciankey'));
     }
 
     /**
