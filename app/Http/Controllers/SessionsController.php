@@ -44,7 +44,7 @@ class SessionsController extends Controller
         $id = $request->id;
         $stop = now();
 
-        $update = DB::table('sessions')
+        $update = DB::table('session1s')
                     ->where('userId', $id)
                     ->where('serialNumber', $barcode)
                     ->where('sessionStop', '2000-01-01 00:00:00')

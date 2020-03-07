@@ -51,8 +51,8 @@ class PagesController extends Controller
     public function session(Request $request)
     {
         $id = $request->session()->get('Techniciankey');
-        $sessions = DB::table('sessions')
-                    ->join('technicians', 'technicians.labId', 'sessions.labId')
+        $sessions = DB::table('session1s')
+                    ->join('technicians', 'technicians.labId', 'session1s.labId')
                     ->where('technicians.employeeId', '=', $id)
                     ->distinct()
                     ->get();
