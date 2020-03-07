@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Session;
+use App\Session1;
 use App\Asset;
 use App\Lab;
 use DB;
@@ -22,7 +22,7 @@ class SessionsController extends Controller
      */
     public function start(Request $request)
     {
-        $session = new Session();
+        $session = new Session1();
         $session->userId = $request->id;
         $session->serialNumber = $request->barcode;
         $session->labId = $request->lab;
