@@ -73,7 +73,7 @@
                           <i class="material-icons">lock_outline</i>
                         </span>
                       </div>
-                      <input type="text" name="id" class="form-control" placeholder="Employee id..." required>
+                      <input type="password" name="id" class="form-control" placeholder="Employee id..." required>
                     </div>
                   </span>
                 </div>

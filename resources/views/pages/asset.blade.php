@@ -123,16 +123,10 @@
               <div class="card-icon">
                 <i class="material-icons">info</i>
               </div>
-              <h4 class="card-title">Asset</h4>
+              <h4 class="card-title">Assets</h4>
             </div>
             <!-- Display notification messages here -->
             <div class="container" style="padding-top:10px;">
-              @if ($message = Session::get('success'))
-              <div class="alert alert-success alert-block">
-                <button type="button" class="close" data-dismiss="alert">×</button>    
-                <strong>{{ $message }}</strong>
-              </div>
-              @endif
             </div>
 
             <!-- Display the courses available in the database -->

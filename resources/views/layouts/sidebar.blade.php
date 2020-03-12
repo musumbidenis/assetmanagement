@@ -28,6 +28,12 @@
               <p>Session</p>
             </a>
           </li>
+          <li class="{{ Request::path() == 'report' ? 'active' : '' }}">
+            <a class="nav-link" href="/report">
+              <i class="material-icons">description</i>
+              <p>Report</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>

@@ -17,9 +17,14 @@ Route::get('/register', 'AuthController@registrationForm');
 Route::post('/register', 'AuthController@register');
 Route::post('/login', 'AuthController@login');
 
-Route::get('/home', 'PagesController@home')->middleware('auth');
-Route::get('/asset', 'PagesController@asset')->middleware('auth');
-Route::get('/session', 'PagesController@session')->middleware('auth');
+Route::get('/home', 'PagesController@home');
+Route::get('/asset', 'PagesController@asset');
+Route::get('/session', 'PagesController@session');
+Route::get('/report', 'PagesController@report');
+
+Route::get('/report/assets', 'ReportsController@assetReport');
+Route::get('/report/complete', 'ReportsController@complete');
+Route::get('/report/incomplete', 'ReportsController@incomplete');
 
 Route::post('/asset/upload', 'AssetsController@store');
 
