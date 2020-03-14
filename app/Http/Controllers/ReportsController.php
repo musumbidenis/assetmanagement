@@ -29,10 +29,10 @@ class ReportsController extends Controller
         $pdf = PDF::loadView('pdf.assets');
 
         // If you want to store the generated pdf to the server then you can use the store function
-        $pdf->save(storage_path().'_filename.pdf');
+        //$pdf->save(storage_path().'_filename.pdf');
 
         // Finally, you can download the file using download function
-        return $pdf->download('assets.pdf');
+        return $pdf->download('assets_' .now(). '.pdf');
 
     }
 
@@ -62,7 +62,7 @@ class ReportsController extends Controller
         //$pdf->save(storage_path().'_filename.pdf');
 
         // Finally, you can download the file using download function
-        return $pdf->download('asset-usage-report.pdf');
+        return $pdf->download('assets_usage_' .now(). '.pdf');
 
     }
     
@@ -83,7 +83,7 @@ class ReportsController extends Controller
 
         
         // Send data to the view using loadView function of PDF facade
-        $pdf = PDF::loadView('pdf.incomplete');
+        //$pdf = PDF::loadView('pdf.incomplete');
 
         // If you want to store the generated pdf to the server then you can use the store function
         //$pdf->save(storage_path().'_filename.pdf');
