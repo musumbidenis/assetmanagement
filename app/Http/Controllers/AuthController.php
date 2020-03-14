@@ -53,7 +53,7 @@ class AuthController extends Controller
         $credentials = Technician::where('email', $email)->where('employeeId', $id)->count();
 
         if($credentials == 0){
-            return redirect('/')->with('error','Incorrect details!');
+            return redirect('/')->with('error','Incorrect details. Please try again!');
         }else{
             $request->session()->put('Techniciankey', $id);
             return redirect('home');

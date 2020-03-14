@@ -5,16 +5,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
     <div class="container">
-      <div class="navbar-wrapper">
-        <a class="navbar-brand" href="/register">Register</a>
-      </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end">
+      <div class="collapse navbar-collapse">
         <ul class="navbar-nav">
           <li class="nav-item ">
             <a href="/register" class="nav-link">
@@ -28,6 +19,12 @@
           </li>
         </ul>
       </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
     </div>
   </nav>
   <!-- End Navbar -->
@@ -43,19 +40,26 @@
                 <div class="card-header card-header-rose text-center">
                   <h4 class="card-title">Login Form</h4>
                 </div><br>
+
+              <!-- Display notification messages here -->
+              <div class="container" style="padding-top:10px;">
+              @if ($message = Session::get('success'))
+              <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>    
+                <strong>{{ $message }}</strong>
+              </div>
+              @endif
+              </div>
+              <div class="container" style="padding-top:10px;">
+              @if ($message = Session::get('error'))
+              <div class="alert alert-danger alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>    
+                <strong>{{ $message }}</strong>
+              </div>
+              @endif
+              </div>
+
                 <div class="card-body ">
-                  @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block">
-                <button type="button" class="close" data-dismiss="alert">×</button>    
-                <strong>{{ $message }}</strong>
-                </div>
-                  @endif
-                  @if ($message = Session::get('error'))
-                <div class="alert alert-danger alert-block">
-                <button type="button" class="close" data-dismiss="alert">×</button>    
-                <strong>{{ $message }}</strong>
-                </div>
-                  @endif
                   <span class="bmd-form-group">
                     <div class="input-group">
                       <div class="input-group-prepend">
