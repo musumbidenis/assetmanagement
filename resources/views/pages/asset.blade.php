@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="main-panel">
-      <!-- Navbar -->
+      <!-- Navbar Start -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="/home">Dashboard</a>
+            <a class="navbar-brand" href="/asset">Dashboard/Asset</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -18,8 +18,10 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a class="nav-link" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!--Capture the Employee Id of the Lab Technician -->
                   <i class="material-icons">person</i>{{$id}}
                 </a>
+                <!--Logout option -->
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
@@ -28,12 +30,13 @@
           </div>
         </div>
       </nav>
-<!-- End Navbar -->
-
+      <!-- End Navbar -->
+      
+  <!--Body Start -->
   <div class="content">
     <div class="container-fluid">
       <div class="row">
-      <!-- upload courses card -->
+      <!-- Add assets Card Start -->
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="card ">
             <div class="card-header card-header-rose card-header-icon">
@@ -42,6 +45,7 @@
               </div>
               <h4 class="card-title">Add asset</h4>
             </div>
+
             <!-- Display notification messages here -->
             <div class="container" style="padding-top:10px;">
               @if ($message = Session::get('success'))
@@ -75,13 +79,12 @@
               </form>
             </div>
 
-            <!-- Display the courses available in the database -->
+            <!-- Display the assets available in the database -->
           <div class="card-body">
             <div class="toolbar">
               <!--        Here you can write extra buttons/actions for the toolbar              -->
             </div>
             <div class="material-datatables">
-
               <table id="datatables01" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                 <thead>
                   <tr>
@@ -116,7 +119,9 @@
           </div>
          </div>
         </div>
+        <!-- Add assets Card End -->
 
+        <!-- Edit assets Card Start -->
         <div class="col-lg-6 col-md-6 col-sm-6">
           <div class="card ">
             <div class="card-header card-header-rose card-header-icon">
@@ -125,17 +130,13 @@
               </div>
               <h4 class="card-title">Assets</h4>
             </div>
-            <!-- Display notification messages here -->
-            <div class="container" style="padding-top:10px;">
-            </div>
 
-            <!-- Display the courses available in the database -->
+          <!-- Display the assets available in the database -->
           <div class="card-body">
             <div class="toolbar">
               <!--        Here you can write extra buttons/actions for the toolbar              -->
             </div>
             <div class="material-datatables">
-
               <table id="datatables02" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
                 <thead>
                   <tr>
@@ -175,7 +176,11 @@
           </div>
          </div>
         </div>
+        <!-- Edit assets Card End -->
+
     </div>
   </div>
+</div>
+<!--Body End -->
 </div>
 @endsection

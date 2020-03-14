@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="main-panel">
-      <!-- Navbar -->
+      <!-- Navbar Start-->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
@@ -18,21 +18,28 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a class="nav-link" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!--Capture the Employee Id of the Lab Technician -->
                   <i class="material-icons">person</i>{{$id}}
                 </a>
+
+                <!--Logout option -->
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
+
               </li>
             </ul>
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
+
+      <!--Body Start -->
       <div class="content">
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6">
+
               <div class="card card-stats">
                 <div class="card-header card-header-primary card-header-icon">
                   <div class="card-icon">
@@ -46,7 +53,7 @@
                 <div class="card-footer">
                   <div class="stats">
                     <i class="material-icons text-primary">info</i>
-                    <a href="#">Add new assets</a>
+                    <a href="/asset">Add new assets</a>
                   </div>
                 </div>
               </div>
@@ -54,6 +61,7 @@
           </div>
         </div>
       </div>
+      <!--Body End -->
 
     </div>
  @endsection

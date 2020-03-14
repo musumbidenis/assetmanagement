@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="main-panel">
-      <!-- Navbar -->
+      <!-- Navbar Start -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
         <div class="container-fluid">
           <div class="navbar-wrapper">
-            <a class="navbar-brand" href="/home">Dashboard</a>
+            <a class="navbar-brand" href="/session">Dashboard/Session</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="sr-only">Toggle navigation</span>
@@ -18,8 +18,10 @@
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
                 <a class="nav-link" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <!--Capture the Employee Id of the Lab Technician -->
                   <i class="material-icons">person</i>{{$id}}
                 </a>
+                <!--Logout option -->
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
                   <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
@@ -28,8 +30,9 @@
           </div>
         </div>
       </nav>
-<!-- End Navbar -->
-
+      <!-- End Navbar -->
+      
+  <!--Body Start -->
   <div class="content">
     <div class="container-fluid">
       <div class="row">
@@ -79,5 +82,8 @@
         </div>
     </div>
   </div>
+    </div>
+</div>
+<!--Body End -->
 </div>
 @endsection
