@@ -19,19 +19,19 @@
           <li class="{{ Request::path() == 'asset' ? 'active' : '' }}">
             <a class="nav-link" href="/asset">
               <i class="material-icons">info</i>
-              <p>Asset</p>
+              <p>Assets</p>
             </a>
           </li>
           <li class="{{ Request::path() == 'session' ? 'active' : '' }}">
             <a class="nav-link" href="/session">
               <i class="material-icons">schedule</i>
-              <p>Session</p>
+              <p>Sessions</p>
             </a>
           </li>
           <li class="{{ Request::path() == 'report' ? 'active' : '' }}">
             <a class="nav-link" href="/report">
               <i class="material-icons">description</i>
-              <p>Report</p>
+              <p>Reports</p>
             </a>
           </li>
         </ul>
