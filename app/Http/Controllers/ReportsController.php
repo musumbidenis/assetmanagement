@@ -83,7 +83,7 @@ class ReportsController extends Controller
 
         
         // Send data to the view using loadView function of PDF facade
-        //$pdf = PDF::loadView('pdf.incomplete');
+        $pdf = PDF::loadView('pdf.incomplete');
 
         // If you want to store the generated pdf to the server then you can use the store function
         //$pdf->save(storage_path().'_filename.pdf');
