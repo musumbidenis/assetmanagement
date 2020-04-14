@@ -91,7 +91,7 @@
                   <td>Asset Name</td>
                   <td>Serial Number</td>
                   <td>Asset Description</td>
-                  <td>Image url</td>
+                  <td>QrCode</td>
                 </tr>
                 </thead>
                 <tbody>
@@ -100,7 +100,7 @@
                 <td>{{$asset->assetName}}</td>
                 <td>{{$asset->serialNumber}}</td>
                 <td>{{$asset->description}}</td>
-                <td>{{$asset->qrCode_url}}</td>
+                <td><a data-toggle="tooltip" title="Click to download image" href="storage/app/qrcode_images/{{$asset->serialNumber}}.png" download><img src="storage/app/qrcode_images/{{$asset->serialNumber}}.png" alt="{{$asset->serialNumber}}.png" style="width:60px;height:60px;"></a></td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -109,7 +109,7 @@
                     <td>Asset Name</td>
                     <td>Serial Number</td>
                     <td>Asset Description</td>
-                    <td>Image url</td>
+                    <td>QrCode</td>
                 </tr>
                 </tfoot>
                 <tbody>
