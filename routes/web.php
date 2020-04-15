@@ -22,6 +22,8 @@ Route::get('/asset', 'PagesController@asset');
 Route::get('/session', 'PagesController@session');
 Route::get('/report', 'PagesController@report');
 
+Route::post('/delete_asset/{id}', 'AssetsController@destroy');
+
 Route::get('/report/assets', 'ReportsController@assetReport');
 Route::get('/report/complete', 'ReportsController@complete');
 Route::get('/report/incomplete', 'ReportsController@incomplete');

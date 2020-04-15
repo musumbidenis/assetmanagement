@@ -43,7 +43,7 @@
               <div class="card-icon">
                 <i class="material-icons">info</i>
               </div>
-              <h4 class="card-title">Add asset</h4>
+              <h4 class="card-title">Add Asset</h4>
             </div>
 
             <!-- Display notification messages here -->
@@ -128,7 +128,17 @@
               <div class="card-icon">
                 <i class="material-icons">info</i>
               </div>
-              <h4 class="card-title">Assets</h4>
+              <h4 class="card-title">Edit Records</h4>
+            </div>
+
+            <!-- Display notification messages here -->
+            <div class="container" style="padding-top:10px;">
+              @if ($message = Session::get('success1'))
+              <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>    
+                <strong>{{ $message }}</strong>
+              </div>
+              @endif
             </div>
 
           <!-- Display the assets available in the database -->
@@ -153,10 +163,10 @@
                 <td>{{$asset->serialNumber}}</td>
                 <td>{{$asset->description}}</td>              
                 <td class="text-right">
-                    <form method="post" action="" enctype="multipart/form-data" name="deleteForm">
+                    <form method="post" action="/delete_asset/{{$asset->serialNumber}}" enctype="multipart/form-data" name="deleteForm">
                         {{ csrf_field() }}
                         <input type="submit"  class="btn btn-danger btn-sm" value="DELETE">
-                      </form>
+                    </form>
                 </td>
                 </tr>
                 @endforeach
