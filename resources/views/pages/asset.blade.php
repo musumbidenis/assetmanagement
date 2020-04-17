@@ -165,7 +165,7 @@
                 <td class="text-right">
                     <form method="post" action="/delete_asset/{{$asset->serialNumber}}" enctype="multipart/form-data" name="deleteForm">
                         {{ csrf_field() }}
-                        <input type="submit"  class="btn btn-danger btn-sm" value="DELETE">
+                        <input type="submit" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger btn-sm" value="DELETE">
                     </form>
                 </td>
                 </tr>
