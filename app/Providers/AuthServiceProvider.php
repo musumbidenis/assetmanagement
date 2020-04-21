@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Imanghafoori\HeyMan\Facades\HeyMan;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        //Check if Lab Techincian is logged in
+        HeyMan::whenYouVisitUrl(['/home', '/asset', '/session', '/report', '/report/assets', '/report/complete', '/report/incomplete', '/logout'])
+            ->youShouldBeLoggedIn()
+            ->otherwise()
+            ->redirect()
+            ->to('/')
+            ->with('Error','Asset added successfully!');
     }
 }
