@@ -31,7 +31,6 @@ class AuthServiceProvider extends ServiceProvider
             ->youShouldBeLoggedIn()
             ->otherwise()
             ->redirect()
-            ->to('/')
-            ->with('Error','Asset added successfully!');
+            ->to('/');
     }
 }
