@@ -7,7 +7,7 @@
   content="private, max-age=0, no-cache">
   <meta http-equiv="pragma" content="no-cache">
   <meta http-equiv="expires" content="0">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <title>
     Asset Management

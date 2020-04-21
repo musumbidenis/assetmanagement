@@ -28,7 +28,7 @@ class AuthServiceProvider extends ServiceProvider
 
         //Check if Lab Techincian is logged in
         HeyMan::whenYouVisitUrl(['/home', '/asset', '/session', '/report', '/report/assets', '/report/complete', '/report/incomplete', '/logout'])
-            ->youShouldBeLoggedIn()
+            ->sessionShouldHave('Techniciankey')
             ->otherwise()
             ->redirect()
             ->to('/');
