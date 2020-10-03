@@ -10,29 +10,32 @@ use Illuminate\Http\Request;
 
 class SessionsController extends Controller
 {
-    /*GET
-     */
-    public function labs()
-    {
-        $labs = Lab::get();
 
-        return $labs;
-    }
     /*POST
      */
     public function start(Request $request)
     {
+        /*Checks if asset exists in database */
+        $barcode = $request->barcode;
+        $check = Asset::where('serialNumber', $barcode)->count();
+
+        if ($check == 0){
+           return response()->json('null');
+        }else{ 
+        /*Get the lab id for asset */
+        $labId = Asset::select('labId')->where('serialNumber', $barcode)->get()->first();
+
         $session = new Session1();
         $session->userId = $request->id;
-        $session->serialNumber = $request->barcode;
-        $session->labId = $request->lab;
+        $session->serialNumber = $barcode;
+        $session->labId = $labId;
         $session->sessionStart = now();
 
-        if($session->save()){
-            return response()->json('success');
-        }else{
-            return response()->json('error');
+        $session->save();
+           return response()->json('success');
         }
+
+        
 
     }
 
@@ -44,17 +47,14 @@ class SessionsController extends Controller
         $id = $request->id;
         $stop = now();
 
-        $update = DB::table('session1s')
+        DB::table('session1s')
                     ->where('userId', $id)
                     ->where('serialNumber', $barcode)
                     ->where('sessionStop', '2000-01-01 00:00:00')
                     ->update(['sessionStop' => $stop]);
         
-        if($update){
-            return response()->json('success');
-        }else{
-            return response()->json('error');
-        }
+        
+        return response()->json('success');
         
     }
 }

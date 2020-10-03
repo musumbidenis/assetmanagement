@@ -16,7 +16,7 @@ class AssetsController extends Controller
      */
     public function store(Request $request)
     {
-        //Generating QrCode from asset's serial number//
+        /*Generates QrCode from asset's serial number */
         $serial = $request->serial;
         $image = QrCode::format('png')
                  ->size(300)
@@ -27,11 +27,11 @@ class AssetsController extends Controller
         $output_file = 'qrcode_images/'.$fileName;
         Storage::disk('local')->put($output_file, $image);
 
-        //Getting the lab id//
+        /*Gets the lab id */
         $id = $id = $request->session()->get('Techniciankey');
         $labId = Technician::select('labId')->where('employeeId', $id)->get()->first();
 
-        //Store the values to database//
+        /*Stores values to database */
         $asset = new Asset();
         $asset->assetName = $request->name;
         $asset->serialNumber = $request->serial;
@@ -44,20 +44,16 @@ class AssetsController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+    /*POST
      */
     public function destroy($id)
     {
-        //Delete asset record from database//
+        /*Deletes asset record from database */
         Asset::where('serialNumber', $id)->delete();
 
-        //Delete image from file storage//
+        /*Deletes image from file storage */
         Storage::disk('local')->delete('qrcode_images/'.$id. '.png');
 
-        return redirect('/asset')->with('success1', 'Asset deleted succcessfully');
+        return redirect('/asset')->with('success1', 'Asset deleted successfully');
     }
 }
